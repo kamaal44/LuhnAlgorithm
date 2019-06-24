@@ -4,7 +4,7 @@ __author__ = "Basel Akasha"
 def main():
 
     # Get user's input
-    user_input = str(input("Number: "))
+    user_input = ask_user()
 
     # Reverse the string
     user_input = user_input[::-1]
@@ -47,6 +47,15 @@ def main():
         print("Invalid")
 
 
+def ask_user():
+    # Keep asking the user until a numbers-only input provided
+    ask = True
+    while ask:
+        user_input = str(input("[+] Number: "))
+        if len(user_input) != 0 and user_input.isdigit():
+            ask = False
+        else:
+            print("[*] Please check your input, it should only contain numbers")
+    return user_input
 
-
-if __name__ == '__main__' : main()
+if __name__ == '__main__': main()
